@@ -1,6 +1,7 @@
 #include <string>
 #include<map>
 #include<vector>
+#include<iostream>
 #include "intruso.hpp"
 
 
@@ -13,31 +14,25 @@
 //         std::string crack_senha();
 // };
 
+// 1 7 3 9 0 8 5 6 2 4 B C E A E B
+// 9 0 7 5 8 4 6 2 3 1 E C C B D A
+
 void Intruso::set_senha_vazada(std::string vazou){
-    std::map<char, int[2]> mp;
+    std::map<char, char[2]> mp;
     for(int i = 0; i<20; i+=4){
-        char c = 'A' + i/2;
+        char c = 'A' + i/4;
         mp[c][0] = vazou[i];
         mp[c][1] = vazou[i+2];
+        
     }
-
-    for(int i = 20; i<31; i+= 2){
-        for(auto it = mp.begin(); it != mp.end(); it++){
-            if(it->first == vazou[i]){
-                senha_conjuntos.push_back((it->second)[0]);
-                senha_conjuntos.push_back((it->second)[1]);
-            }
-        }
+    for(auto it = mp.begin(); it!= mp.end(); it++){
+        std::cout<<it->first<< ":"<<it->second<<std::endl;
     }
-
-    // 1 7 3 9 0 8 5 6 2 4 B C E A E B
-    // for(auto it = vec.begin(); it != vec.end(); it++){
-	// 	for(int i = 0; i<10; i+=2){
-	// 		char c = 'A' + i/2;
-	// 		 = str[i];
-	// 		my[c][1] = str[i+1];
-			
-	// 	}
-	// }
-
+    for(int i = 20; i<31; i+=2){
+        senha_conjuntos.push_back(mp[vazou[i]][0]);
+        senha_conjuntos.push_back(mp[vazou[i]][1]);
+    }
+    for(int i = 0; i<senha_conjuntos.size(); i++){
+        std::cout<<senha_conjuntos[i]<<" "<<std::endl;
+    }
 }

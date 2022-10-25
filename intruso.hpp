@@ -5,7 +5,7 @@
 
 class Intruso{
     /*Continue a implementação da classe Intruso*/
-    std::vector<std::vector<int> senha_conjuntos;
+    std::vector<char> senha_conjuntos;
 
     public:
         void set_senha_vazada(std::string vazou);
