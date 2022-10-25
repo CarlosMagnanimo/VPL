@@ -25,14 +25,14 @@ void Intruso::set_senha_vazada(std::string vazou){
         mp[c][1] = vazou[i+2];
         
     }
-    for(auto it = mp.begin(); it!= mp.end(); it++){
-        std::cout<<it->first<< ":"<<it->second<<std::endl;
-    }
+    // for(auto it = mp.begin(); it!= mp.end(); it++){
+    //     std::cout<<it->first<< ":"<<it->second<<std::endl;
+    // }
     for(int i = 20; i<31; i+=2){
         senha_conjuntos.push_back(mp[vazou[i]][0]);
         senha_conjuntos.push_back(mp[vazou[i]][1]);
     }
-    for(int i = 0; i<senha_conjuntos.size(); i++){
-        std::cout<<senha_conjuntos[i]<<" "<<std::endl;
-    }
+    // for(int i = 0; i<senha_conjuntos.size(); i++){
+    //     std::cout<<senha_conjuntos[i]<<" "<<std::endl;
+    // }
 }
