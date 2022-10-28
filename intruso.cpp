@@ -43,22 +43,27 @@ void Intruso::set_senha_vazada(std::string vazou){
 
 string Intruso::crack_senha(int num_senhas_vazadas ){
 
+// Definindo coeficientes
     string senha;
     char c,c1,c2;
-    
+
+   //For para progredir as letras da senha 
     for(int j=0; j<6; j++){
-    
+        // Definição coeficientes
         c1= senha_conjuntos[2*j];
         c2= senha_conjuntos[2*j+1];
 
+        //iteração entre as possibilidades de senha
         for(int i= 1; i <  num_senhas_vazadas; i++ ){
             
+            //Se c1 não está na linha de baixo, logo c2 é a senha
             if(c1 != senha_conjuntos[2*j + 12*i] && 
                c1 != senha_conjuntos[2*j + 12*i +1] ){
             
                 c=c2;
                 break;
             }
+            //Se c2 não está na linha de baixo, logo c1 é a senha
             if(c2 != senha_conjuntos[2*j + 12*i] && 
                c2 != senha_conjuntos[2*j + 12*i +1] ){
             
@@ -66,7 +71,7 @@ string Intruso::crack_senha(int num_senhas_vazadas ){
                 break;
             }
         }
-
+        //Definindo letra da senha
     senha[j]= c;
     }
     return senha;
