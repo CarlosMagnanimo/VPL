@@ -53,15 +53,17 @@ string Intruso::crack_senha(int num_senhas_vazadas ){
 
         for(int i= 1; i <  num_senhas_vazadas; i++ ){
             
-            if(c1 == senha_conjuntos[2*j + 12*i] || 
-               c1 == senha_conjuntos[2*j + 12*i +1] ){
-            
-                c=c1;
-            }
-            if(c2 == senha_conjuntos[2*j + 12*i] || 
-               c2 == senha_conjuntos[2*j + 12*i +1] ){
+            if(c1 != senha_conjuntos[2*j + 12*i] && 
+               c1 != senha_conjuntos[2*j + 12*i +1] ){
             
                 c=c2;
+                break;
+            }
+            if(c2 != senha_conjuntos[2*j + 12*i] && 
+               c2 != senha_conjuntos[2*j + 12*i +1] ){
+            
+                c=c1;
+                break;
             }
         }
 
