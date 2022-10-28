@@ -13,7 +13,7 @@ int main(){
         std::getline(std::cin, senha);
         intruso.set_senha_vazada(senha);
     }
-    // std::cout << intruso.crack_senha(num_entradas) <<std::endl;
+    std::cout << intruso.crack_senha(num_entradas) <<std::endl;
     
     return 0;
 }

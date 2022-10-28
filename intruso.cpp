@@ -28,11 +28,44 @@ void Intruso::set_senha_vazada(std::string vazou){
     // for(auto it = mp.begin(); it!= mp.end(); it++){
     //     std::cout<<it->first<< ":"<<it->second<<std::endl;
     // }
-    for(int i = 20; i<31; i+=2){
+    
+    
+    for(int i = 20; i<31; i+=2){ 
+
         senha_conjuntos.push_back(mp[vazou[i]][0]);
         senha_conjuntos.push_back(mp[vazou[i]][1]);
+
     }
     // for(int i = 0; i<senha_conjuntos.size(); i++){
     //     std::cout<<senha_conjuntos[i]<<" "<<std::endl;
     // }
+}
+
+string Intruso::crack_senha(int num_senhas_vazadas ){
+
+    string senha;
+    char c,c1,c2;
+    
+    for(int j=0; j<6; j++){
+    
+        c1= senha_conjuntos[2*j];
+        c2= senha_conjuntos[2*j+1];
+
+        for(int i= 1; i <  num_senhas_vazadas; i++ ){
+            
+            if(c1 == senha_conjuntos[2*j + 12*i] || 
+               c1 == senha_conjuntos[2*j + 12*i +1] ){
+            
+                c=c1;
+            }
+            if(c2 == senha_conjuntos[2*j + 12*i] || 
+               c2 == senha_conjuntos[2*j + 12*i +1] ){
+            
+                c=c2;
+            }
+        }
+
+    senha[j]= c;
+    }
+    return senha;
 }
