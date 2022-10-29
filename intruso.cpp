@@ -16,6 +16,7 @@
 
 // 1 7 3 9 0 8 5 6 2 4 B C E A E B
 // 9 0 7 5 8 4 6 2 3 1 E C C B D A
+using namespace std;
 
 void Intruso::set_senha_vazada(std::string vazou){
     std::map<char, char[2]> mp;
