@@ -73,7 +73,10 @@ string Intruso::crack_senha(int num_senhas_vazadas ){
             }
         }
         //Definindo letra da senha
+    
     senha[j]= c;
+    std::cin<< c<< std::endl;
+    
     }
     return senha;
 }
