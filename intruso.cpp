@@ -45,50 +45,33 @@ void Intruso::set_senha_vazada(std::string vazou){
 void Intruso::crack_senha(int num_senhas_vazadas ){
 
 // Definindo coeficientes
-    //string senha;
+
     char c,c1,c2;
 
    //For para progredir as letras da senha 
     for(int j=0; j<6; j++){
+        
         // Definição coeficientes
         c1= senha_conjuntos[2*j];
         c2= senha_conjuntos[2*j+1];
 
-        // std::cout << c1<< " "<< c2<< std::endl;
-
-            // for(int i=0; i < num_senhas_vazadas*12 ;i ++){
-            //     std::cout << senha_conjuntos[i] << std::endl;
-            // }
-
         //iteração entre as possibilidades de senha
         for(int i= 1; i <  num_senhas_vazadas; i++ ){
-            
-            //std::cout << " entrou no for"<< std::endl;
-            
+                        
             //Se c1 não está na linha de baixo, logo c2 é a senha
             if(c1 != senha_conjuntos[2*j + 12*i] && 
                c1 != senha_conjuntos[2*j + 12*i +1] ){
             
               std::cout << c2 << " ";  
-                // c=c2;
-                // break;
+                 break;
             }
             //Se c2 não está na linha de baixo, logo c1 é a senha
             if(c2 != senha_conjuntos[2*j + 12*i] && 
                c2 != senha_conjuntos[2*j + 12*i +1] ){
                 
                 std::cout << c1 << " ";
-                // c=c1;
-                // break;
+                 break;
             }
-        }
-        //Definindo letra da senha
-    
-    // senha[2*j]= c;
-    // senha[2*j+1]= ' ';
-
-    // std::cout << "teste 1" << std::endl;
-    
+        }   
     }
-    // return senha;
 }
